@@ -53,6 +53,11 @@ test('works with global styles', async t => {
   t.snapshot(code)
 })
 
+test('works with selectors over multiple lines', async t => {
+  const { code } = await transform('./fixtures/multiline.js')
+  t.snapshot(code)
+})
+
 test('generates source maps', async t => {
   const { code } = await transform('./fixtures/source-maps.js', {
     plugins: [[plugin, { sourceMaps: true }]]
